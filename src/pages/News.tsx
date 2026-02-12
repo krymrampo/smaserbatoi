@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, ArrowRight, Newspaper, FileText } from 'lucide-react';
+import { Calendar, ArrowRight, Newspaper } from 'lucide-react';
 import { useI18n } from '../i18n';
 
 const News = () => {
@@ -13,7 +13,6 @@ const News = () => {
       h: 'Notizie Censite',
       open: 'Apri dettaglio',
       close: 'Chiudi dettaglio',
-      note: 'Archivio locale aggiornato: le news sono consultabili senza dipendenze dal vecchio sito.',
     },
     en: {
       title: 'News',
@@ -21,7 +20,6 @@ const News = () => {
       h: 'Indexed News',
       open: 'Open details',
       close: 'Close details',
-      note: 'Updated local archive: news can be viewed without legacy-site dependencies.',
     },
     de: {
       title: 'News',
@@ -29,7 +27,6 @@ const News = () => {
       h: 'Erfasste News',
       open: 'Details oeffnen',
       close: 'Details schliessen',
-      note: 'Aktualisiertes lokales Archiv: News sind ohne Abhaengigkeit von der alten Website verfuegbar.',
     },
   }[language];
 
@@ -154,10 +151,6 @@ const News = () => {
             })}
           </div>
 
-          <div className="mt-12 bg-white rounded-2xl border border-gray-200 p-6 text-sm text-gray-600 flex items-start gap-3">
-            <FileText className="w-5 h-5 text-[#b91c1c] mt-0.5" />
-            <p>{t.note}</p>
-          </div>
         </div>
       </section>
     </main>
