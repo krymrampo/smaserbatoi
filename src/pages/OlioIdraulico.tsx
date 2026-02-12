@@ -95,7 +95,7 @@ const OlioIdraulico = () => {
               <ArrowRight className="w-5 h-5" />
               {t.quote}
             </a>
-            <a href="/original-site/elenco-prodotti.htm" className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg">
+            <a href="/elenco-prodotti.htm" className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg">
               <FileText className="w-5 h-5" />
               {t.catalog}
             </a>

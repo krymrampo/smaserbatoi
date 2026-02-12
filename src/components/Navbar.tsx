@@ -182,14 +182,12 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
                       {child.label}
                     </button>
                   ))}
-                  <a
-                    href="https://whistleblowing.smaserbatoi.it"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => handlePageClick('whistleblowing')}
                     className="block w-full text-left px-4 py-2.5 text-sm transition-all text-gray-600 hover:text-[#b91c1c] hover:bg-gray-50"
                   >
                     {tr.whistleblowing}
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -257,14 +255,12 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
                     {child.label}
                   </button>
                 ))}
-                <a
-                  href="https://whistleblowing.smaserbatoi.it"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handlePageClick('whistleblowing')}
                   className="block w-full text-left py-2 text-sm text-gray-600 hover:text-[#b91c1c]"
                 >
                   {tr.whistleblowing}
-                </a>
+                </button>
               </div>
             </div>
 

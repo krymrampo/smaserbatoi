@@ -22,6 +22,7 @@ const Footer = ({ setPage }: FooterProps) => {
       contacts: 'Contatti',
       configurator: 'Configuratore',
       reserved: 'Area Riservata',
+      whistleblowing: 'Whistleblowing',
       office1: 'Sede e stabilimento:',
       office2: 'Stabilimento:',
       rights: 'Tutti i diritti sono riservati',
@@ -40,6 +41,7 @@ const Footer = ({ setPage }: FooterProps) => {
       contacts: 'Contacts',
       configurator: 'Configurator',
       reserved: 'Restricted Area',
+      whistleblowing: 'Whistleblowing',
       office1: 'Head office and plant:',
       office2: 'Plant:',
       rights: 'All rights reserved',
@@ -58,6 +60,7 @@ const Footer = ({ setPage }: FooterProps) => {
       contacts: 'Kontakte',
       configurator: 'Konfigurator',
       reserved: 'Reservierter Bereich',
+      whistleblowing: 'Whistleblowing',
       office1: 'Hauptsitz und Werk:',
       office2: 'Werk:',
       rights: 'Alle Rechte vorbehalten',
@@ -77,6 +80,7 @@ const Footer = ({ setPage }: FooterProps) => {
     { label: tr.contacts, page: 'contatti' as Page },
     { label: tr.configurator, page: 'configuratore' as Page },
     { label: tr.reserved, page: 'area-riservata' as Page },
+    { label: tr.whistleblowing, page: 'whistleblowing' as Page },
   ];
 
   const handleClick = (page: Page) => {

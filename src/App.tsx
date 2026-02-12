@@ -18,6 +18,7 @@ import News from './pages/News';
 import Contatti from './pages/Contatti';
 import Configuratore from './pages/Configuratore';
 import AreaRiservata from './pages/AreaRiservata';
+import Whistleblowing from './pages/Whistleblowing';
 import ElencoProdotti from './pages/ElencoProdotti';
 import AriaPopupScheda from './pages/AriaPopupScheda';
 import AriaPopupAccessori from './pages/AriaPopupAccessori';
@@ -45,7 +46,8 @@ export type Page =
   | 'distributori'
   | 'news'
   | 'contatti'
-  | 'area-riservata';
+  | 'area-riservata'
+  | 'whistleblowing';
 
 type RouteMatch = { page: Page; language?: Language };
 
@@ -72,6 +74,7 @@ const pageToPathByLanguage: Record<Language, Record<Page, string>> = {
     news: '/news.aspx',
     contatti: '/contatti.aspx',
     'area-riservata': '/area-riservata.aspx',
+    whistleblowing: '/whistleblowing.aspx',
   },
   en: {
     home: '/english/default.aspx',
@@ -95,6 +98,7 @@ const pageToPathByLanguage: Record<Language, Record<Page, string>> = {
     news: '/english/news.aspx',
     contatti: '/english/contatti.aspx',
     'area-riservata': '/english/area-riservata.aspx',
+    whistleblowing: '/english/whistleblowing.aspx',
   },
   de: {
     home: '/deutsch/default.aspx',
@@ -118,6 +122,7 @@ const pageToPathByLanguage: Record<Language, Record<Page, string>> = {
     news: '/deutsch/news.aspx',
     contatti: '/deutsch/contatti.aspx',
     'area-riservata': '/deutsch/area-riservata.aspx',
+    whistleblowing: '/deutsch/whistleblowing.aspx',
   },
 };
 
@@ -126,6 +131,7 @@ const extraPathToRoute: Record<string, RouteMatch> = {
   '/contatti': { page: 'contatti', language: 'it' },
   '/news': { page: 'news', language: 'it' },
   '/prodotti': { page: 'aria-compressa', language: 'it' },
+  '/whistleblowing': { page: 'whistleblowing', language: 'it' },
 };
 
 const buildPathToRouteMap = (): Record<string, RouteMatch> => {
@@ -258,6 +264,8 @@ function App() {
         return <Contatti />;
       case 'area-riservata':
         return <AreaRiservata />;
+      case 'whistleblowing':
+        return <Whistleblowing />;
       default:
         return <Home setPage={navigateToPage} />;
     }

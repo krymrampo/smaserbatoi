@@ -11,19 +11,91 @@ const Configurators = ({ setPage }: ConfiguratorsProps) => {
 
   const items = {
     it: [
-      { icon: Pencil, title: 'CONFIGURATORE SERBATOI', subtitle: 'Disegna e scarica il tuo serbatoio', description: 'Progettazione su misura online.', buttonText: 'APRI', buttonLink: 'https://design.smaserbatoi.it/index-IT.php', image: '/images/hero-tank-1.jpg', external: true, page: 'home' as Page },
-      { icon: Truck, title: 'CONFIGURATORE AUTOCARRI', subtitle: 'Trova il serbatoio per il tuo veicolo', description: 'Ricerca soluzione compatibile.', buttonText: 'SCOPRI', buttonLink: '', image: '/images/configurator-truck.jpg', external: false, page: 'configuratore' as Page },
-      { icon: Wrench, title: 'SERBATOI CARPENTERIA', subtitle: 'Soluzioni custom', description: 'Produzione tecnica su specifica.', buttonText: 'VAI ALLA PAGINA', buttonLink: '', image: '/images/carpentry-tank.jpg', external: false, page: 'carpenteria' as Page },
+      {
+        icon: Pencil,
+        title: 'CONFIGURATORE SERBATOI',
+        subtitle: 'Disegna e invia la tua richiesta',
+        description: 'Flusso interno: configurazione e invio diretto al team tecnico.',
+        buttonText: 'APRI CONFIGURATORE',
+        image: '/images/hero-tank-1.jpg',
+        page: 'configuratore' as Page,
+      },
+      {
+        icon: Truck,
+        title: 'CONFIGURATORE AUTOCARRI',
+        subtitle: 'Trova il serbatoio per il tuo veicolo',
+        description: 'Ricerca guidata con richiesta commerciale integrata.',
+        buttonText: 'SCOPRI',
+        image: '/images/configurator-truck.jpg',
+        page: 'configuratore' as Page,
+      },
+      {
+        icon: Wrench,
+        title: 'SERBATOI CARPENTERIA',
+        subtitle: 'Soluzioni custom',
+        description: 'Produzione tecnica su specifica.',
+        buttonText: 'VAI ALLA PAGINA',
+        image: '/images/carpentry-tank.jpg',
+        page: 'carpenteria' as Page,
+      },
     ],
     en: [
-      { icon: Pencil, title: 'TANK CONFIGURATOR', subtitle: 'Design and download your tank', description: 'Online custom design.', buttonText: 'OPEN', buttonLink: 'https://design.smaserbatoi.it/index-IT.php', image: '/images/hero-tank-1.jpg', external: true, page: 'home' as Page },
-      { icon: Truck, title: 'TRUCK CONFIGURATOR', subtitle: 'Find the right tank for your vehicle', description: 'Search compatible solution.', buttonText: 'DISCOVER', buttonLink: '', image: '/images/configurator-truck.jpg', external: false, page: 'configuratore' as Page },
-      { icon: Wrench, title: 'CARPENTRY TANKS', subtitle: 'Custom solutions', description: 'Technical production on specification.', buttonText: 'GO TO PAGE', buttonLink: '', image: '/images/carpentry-tank.jpg', external: false, page: 'carpenteria' as Page },
+      {
+        icon: Pencil,
+        title: 'TANK CONFIGURATOR',
+        subtitle: 'Design and send your request',
+        description: 'Internal flow: configuration and direct submission to the technical team.',
+        buttonText: 'OPEN CONFIGURATOR',
+        image: '/images/hero-tank-1.jpg',
+        page: 'configuratore' as Page,
+      },
+      {
+        icon: Truck,
+        title: 'TRUCK CONFIGURATOR',
+        subtitle: 'Find the right tank for your vehicle',
+        description: 'Guided search with integrated sales request.',
+        buttonText: 'DISCOVER',
+        image: '/images/configurator-truck.jpg',
+        page: 'configuratore' as Page,
+      },
+      {
+        icon: Wrench,
+        title: 'CARPENTRY TANKS',
+        subtitle: 'Custom solutions',
+        description: 'Technical production on specification.',
+        buttonText: 'GO TO PAGE',
+        image: '/images/carpentry-tank.jpg',
+        page: 'carpenteria' as Page,
+      },
     ],
     de: [
-      { icon: Pencil, title: 'TANK-KONFIGURATOR', subtitle: 'Tank entwerfen und herunterladen', description: 'Online-Sonderkonstruktion.', buttonText: 'OEFFNEN', buttonLink: 'https://design.smaserbatoi.it/index-IT.php', image: '/images/hero-tank-1.jpg', external: true, page: 'home' as Page },
-      { icon: Truck, title: 'LKW-KONFIGURATOR', subtitle: 'Passenden Tank fuer Ihr Fahrzeug finden', description: 'Kompatible Loesung suchen.', buttonText: 'ENTDECKEN', buttonLink: '', image: '/images/configurator-truck.jpg', external: false, page: 'configuratore' as Page },
-      { icon: Wrench, title: 'SONDERBAU-BEHAELTER', subtitle: 'Individuelle Loesungen', description: 'Technische Fertigung nach Vorgabe.', buttonText: 'ZUR SEITE', buttonLink: '', image: '/images/carpentry-tank.jpg', external: false, page: 'carpenteria' as Page },
+      {
+        icon: Pencil,
+        title: 'TANK-KONFIGURATOR',
+        subtitle: 'Tank planen und Anfrage senden',
+        description: 'Interner Ablauf: Konfiguration und direkte Uebermittlung an das Technikteam.',
+        buttonText: 'KONFIGURATOR OEFFNEN',
+        image: '/images/hero-tank-1.jpg',
+        page: 'configuratore' as Page,
+      },
+      {
+        icon: Truck,
+        title: 'LKW-KONFIGURATOR',
+        subtitle: 'Passenden Tank fuer Ihr Fahrzeug finden',
+        description: 'Gefuehrte Suche mit integrierter Anfrage.',
+        buttonText: 'ENTDECKEN',
+        image: '/images/configurator-truck.jpg',
+        page: 'configuratore' as Page,
+      },
+      {
+        icon: Wrench,
+        title: 'SONDERBAU-BEHAELTER',
+        subtitle: 'Individuelle Loesungen',
+        description: 'Technische Fertigung nach Vorgabe.',
+        buttonText: 'ZUR SEITE',
+        image: '/images/carpentry-tank.jpg',
+        page: 'carpenteria' as Page,
+      },
     ],
   }[language];
 
@@ -41,11 +113,9 @@ const Configurators = ({ setPage }: ConfiguratorsProps) => {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-500 mb-4">{item.subtitle}</p>
                 <p className="text-gray-600 text-sm mb-6">{item.description}</p>
-                {item.external ? (
-                  <a href={item.buttonLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-all">{item.buttonText}</a>
-                ) : (
-                  <button onClick={() => setPage(item.page)} className="inline-flex items-center justify-center w-full px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-all">{item.buttonText}</button>
-                )}
+                <button onClick={() => setPage(item.page)} className="inline-flex items-center justify-center w-full px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-all">
+                  {item.buttonText}
+                </button>
               </div>
             </div>
           ))}
