@@ -30,6 +30,9 @@ const Home = ({ setPage }: HomeProps) => {
       infoBtn: 'Richiedi informazioni',
       callBtn: 'Chiama ora: +39 0521 645523',
       more: 'Scopri di piu',
+      referencesTitle: 'Aziende che scelgono SMA',
+      referencesText: 'Referenze industriali internazionali con collaborazioni continuative.',
+      referencesCta: 'Vedi tutte le referenze',
     },
     en: {
       features: [
@@ -49,6 +52,9 @@ const Home = ({ setPage }: HomeProps) => {
       infoBtn: 'Request information',
       callBtn: 'Call now: +39 0521 645523',
       more: 'Learn more',
+      referencesTitle: 'Companies choosing SMA',
+      referencesText: 'International industrial references with long-term collaborations.',
+      referencesCta: 'View all references',
     },
     de: {
       features: [
@@ -68,6 +74,9 @@ const Home = ({ setPage }: HomeProps) => {
       infoBtn: 'Information anfordern',
       callBtn: 'Jetzt anrufen: +39 0521 645523',
       more: 'Mehr erfahren',
+      referencesTitle: 'Unternehmen, die SMA waehlen',
+      referencesText: 'Internationale Industriekunden mit langfristigen Kooperationen.',
+      referencesCta: 'Alle Referenzen anzeigen',
     },
   }[language];
 
@@ -80,9 +89,84 @@ const Home = ({ setPage }: HomeProps) => {
     { name: language === 'it' ? 'Misti Olio-Gasolio' : language === 'en' ? 'Mixed Oil-Diesel' : 'Misch Oel-Diesel', page: 'misti' as Page, image: '/images/hero-tank-1.jpg' },
   ];
 
+  const references = [
+    { name: 'Volvo', website: 'https://www.volvo.com', logo: '/logos/references/volvo.svg' },
+    { name: 'Iveco', website: 'https://www.iveco.com', logo: '/logos/references/iveco.svg' },
+    { name: 'Hyva', website: 'https://www.hyva.com', logo: '/logos/references/hyva.svg' },
+    { name: 'Schwarzmueller', website: 'https://www.schwarzmueller.com', logo: '/logos/references/schwarzmueller.svg' },
+    { name: 'Azimut Yachts', website: 'https://www.azimutyachts.com', logo: '/logos/references/azimut-yachts.svg' },
+    { name: 'Van Hool', website: 'https://www.vanhool.com', logo: '/logos/references/van-hool.svg' },
+    { name: 'Pirelli', website: 'https://www.pirelli.com', logo: '/logos/references/pirelli.svg' },
+    { name: 'Manitou', website: 'https://www.manitou.com', logo: '/logos/references/manitou.svg' },
+    { name: 'Alstom', website: 'https://www.alstom.com', logo: '/logos/references/alstom.svg' },
+    { name: 'PM Group', website: 'https://www.pm-group.eu', logo: '/logos/references/pm-group.svg' },
+    { name: 'Terex', website: 'https://www.terex.com', logo: '/logos/references/terex.svg' },
+    { name: 'Haldex', website: 'https://www.haldex.com', logo: '/logos/references/haldex.svg' },
+  ];
+
+  const firstRow = references.slice(0, 6);
+  const secondRow = references.slice(6);
+
   return (
     <main>
       <Hero setPage={setPage} />
+
+      <section className="py-14 bg-white border-y border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">{tr.referencesTitle}</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">{tr.referencesText}</p>
+          </div>
+
+          <div className="relative space-y-4 overflow-hidden">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+
+            <div className="marquee-track">
+              {[...firstRow, ...firstRow].map((ref, index) => (
+                <a
+                  key={`${ref.name}-${index}`}
+                  href={ref.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="marquee-card"
+                  aria-label={ref.name}
+                  title={ref.name}
+                >
+                  <img src={ref.logo} alt={ref.name} className="max-h-10 w-auto object-contain" loading="lazy" />
+                </a>
+              ))}
+            </div>
+
+            <div className="marquee-track marquee-track-reverse">
+              {[...secondRow, ...secondRow].map((ref, index) => (
+                <a
+                  key={`${ref.name}-r-${index}`}
+                  href={ref.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="marquee-card"
+                  aria-label={ref.name}
+                  title={ref.name}
+                >
+                  <img src={ref.logo} alt={ref.name} className="max-h-10 w-auto object-contain" loading="lazy" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setPage('referenze')}
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[#b91c1c] text-[#b91c1c] rounded-lg font-semibold hover:bg-red-50 transition-colors"
+            >
+              {tr.referencesCta}
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
       <Configurators setPage={setPage} />
 
       <section className="py-16 bg-white">

@@ -156,3 +156,75 @@ html {
   visibility: visible;
   transform: translateY(0);
 }
+
+/* References marquee */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: marquee-left 30s linear infinite;
+}
+
+.marquee-track-reverse {
+  animation: marquee-right 32s linear infinite;
+}
+
+.marquee-card {
+  display: flex;
+  height: 84px;
+  min-width: 220px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 0.75rem 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.marquee-card:hover {
+  transform: translateY(-2px);
+  border-color: #fecaca;
+  box-shadow: 0 8px 24px rgba(185, 28, 28, 0.12);
+}
+
+@media (max-width: 768px) {
+  .marquee-card {
+    min-width: 180px;
+    height: 74px;
+    padding: 0.6rem 1rem;
+  }
+
+  .marquee-track {
+    animation-duration: 24s;
+  }
+
+  .marquee-track-reverse {
+    animation-duration: 26s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-reverse {
+    animation: none;
+  }
+}
