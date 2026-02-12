@@ -1,177 +1,103 @@
 import { ArrowRight, FileText } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 const OlioIdraulico = () => {
-  const smallTanks = [
-    { liters: 20, dimensions: '160x410x420', codeIron: '7.731', codeAlum: '-' },
-    { liters: 30, dimensions: '280x310x370', codeIron: '7.732', codeAlum: '-' },
-    { liters: 40, dimensions: '300x410x420', codeIron: '7.733', codeAlum: '-' },
-    { liters: 60, dimensions: '310x380x570', codeIron: '7.736', codeAlum: '-' },
-    { liters: 60, dimensions: '310x380x575', codeIron: '7.737', codeAlum: '-' },
-    { liters: 100, dimensions: '290x470x780', codeIron: '7.741', codeAlum: '-' },
-    { liters: 100, dimensions: '580x320x600', codeIron: '7.742', codeAlum: '-' },
-    { liters: 100, dimensions: '520x280x730', codeIron: '7.743', codeAlum: '-' },
-    { liters: 130, dimensions: '570x350x730', codeIron: '7.745', codeAlum: '-' },
+  const { language } = useI18n();
+
+  const t = {
+    it: { title: 'Olio Idraulico', sub: 'Serbatoi standard e custom per sistemi idraulici', heading: 'Tabella Serbatoi Standard', docs: 'Documentazione PDF', quote: 'Richiedi Preventivo', catalog: 'Catalogo Completo' },
+    en: { title: 'Hydraulic Oil', sub: 'Standard and custom tanks for hydraulic systems', heading: 'Standard Tank Table', docs: 'PDF Documents', quote: 'Request Quote', catalog: 'Full Catalog' },
+    de: { title: 'Hydraulikoel', sub: 'Standard- und Sonderbehaelter fuer Hydrauliksysteme', heading: 'Standardbehaelter Tabelle', docs: 'PDF Dokumente', quote: 'Angebot anfordern', catalog: 'Vollstaendiger Katalog' },
+  }[language];
+
+  const rows = [
+    { liters: '20', dim: '160x410x420', iron: '7.731', ironPdf: '/original-site/pdf/olio/7731.pdf', alum: '-' },
+    { liters: '30', dim: '280x310x370', iron: '7.732', ironPdf: '/original-site/pdf/olio/7732.pdf', alum: '-' },
+    { liters: '40', dim: '300x410x420', iron: '7.733', ironPdf: '/original-site/pdf/olio/7733.pdf', alum: '-' },
+    { liters: '60', dim: '310x380x570', iron: '7.736', ironPdf: '/original-site/pdf/olio/7736.pdf', alum: '-' },
+    { liters: '60', dim: '310x380x575', iron: '7.737', ironPdf: '/original-site/pdf/olio/7737.pdf', alum: '-' },
+    { liters: '100', dim: '290x470x780', iron: '7.741', ironPdf: '/original-site/pdf/olio/7741.pdf', alum: '-' },
+    { liters: '100', dim: '580x320x600', iron: '7.742', ironPdf: '/original-site/pdf/olio/7742.pdf', alum: '-' },
+    { liters: '100', dim: '520x280x730', iron: '7.743', ironPdf: '/original-site/pdf/olio/7743.pdf', alum: '-' },
+    { liters: '130', dim: '570x350x730', iron: '7.745', ironPdf: '/original-site/pdf/olio/7745.pdf', alum: '-' },
+    { liters: '135', dim: '636x706x350', iron: '7.748 CX', ironPdf: '/original-site/pdf/olio/7748CX.pdf', alum: '7.848 CX', alumPdf: '/original-site/pdf/olio/7848CX.pdf' },
+    { liters: '135', dim: '720x610x350', iron: '7.749 Z5', ironPdf: '/original-site/pdf/olio/7749Z5.pdf', alum: '7.849 S5' },
+    { liters: '150', dim: '636x706x400', iron: '7.756 CX', ironPdf: '/original-site/pdf/olio/7756CX.pdf', alum: '7.856 CX', alumPdf: '/original-site/pdf/olio/7856CX.pdf' },
+    { liters: '160', dim: '610x610x500', iron: '7.758 KW', ironPdf: '/original-site/pdf/olio/7758KW.pdf', alum: '7.851 ZW', alumPdf: '/original-site/pdf/olio/7851ZW.pdf' },
+    { liters: '175', dim: '636x706x450', iron: '7.761 CX', ironPdf: '/original-site/pdf/olio/7761CX.pdf', alum: '7.861 CX', alumPdf: '/original-site/pdf/olio/7861CX.pdf' },
+    { liters: '200', dim: '720x610x500', iron: '7.753 BC', alum: '7.853 WC', alumPdf: '/original-site/pdf/olio/7853WC.pdf' },
+    { liters: '200', dim: '636x706x500', iron: '7.765 CX', ironPdf: '/original-site/pdf/olio/7765CX.pdf', alum: '7.865 CX', alumPdf: '/original-site/pdf/olio/7865CX.pdf' },
+    { liters: '250', dim: '636x706x630', iron: '7.759 CX', ironPdf: '/original-site/pdf/olio/7759CX.pdf', alum: '7.859 CX', alumPdf: '/original-site/pdf/olio/7859CX.pdf' },
   ];
 
-  const largeTanks = [
-    { liters: 120, dimensions: '636x706x300', codeIron: '7.747 45', codeAlum: '7.847 CK' },
-    { liters: 135, dimensions: '636x706x350', codeIron: '7.748 CX', codeAlum: '7.848 CX' },
-    { liters: 135, dimensions: '720x610x350', codeIron: '7.749 Z5', codeAlum: '7.849 S5' },
-    { liters: 140, dimensions: '720x720x300', codeIron: '7.777 47 *', codeAlum: '7.877 CZ *' },
-    { liters: 150, dimensions: '636x706x400', codeIron: '7.756 CX', codeAlum: '7.856 CX' },
-    { liters: 150, dimensions: '720x610x400', codeIron: '7.757 BE', codeAlum: '7.850 PE' },
-    { liters: 160, dimensions: '610x610x500', codeIron: '7.758 KW', codeAlum: '7.851 ZW' },
-    { liters: 175, dimensions: '636x706x450', codeIron: '7.761 CX', codeAlum: '7.861 CX' },
-    { liters: 175, dimensions: '720x610x450', codeIron: '7.762 BE', codeAlum: '7.862 PE' },
-    { liters: 200, dimensions: '720x610x500', codeIron: '7.753 BC', codeAlum: '7.853 WC' },
-    { liters: 200, dimensions: '636x706x500', codeIron: '7.765 CX', codeAlum: '7.865 CX' },
-    { liters: 250, dimensions: '636x706x630', codeIron: '7.759 CX', codeAlum: '7.859 CX' },
+  const docs = [
+    { label: 'Clean Tank', href: '/original-site/download/allegati/fn000040.pdf' },
+    { label: 'Olio Idraulico', href: '/original-site/download/allegati/fn000084.pdf' },
+    { label: 'Easy Tank', href: '/original-site/download/allegati/fn000086.pdf' },
   ];
 
   return (
     <main className="pt-[104px]">
-      {/* Hero */}
-      <section className="relative h-[400px] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/images/hero-tank-3.jpg)' }}
-        >
+      <section className="relative h-[360px] overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/original-site/download/immagini/fn000167.jpg)' }}>
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative h-full container mx-auto px-4 flex items-center">
           <div className="max-w-2xl text-white">
-            <h1 className="text-5xl font-bold mb-4">Olio Idraulico</h1>
-            <p className="text-xl text-gray-200">
-              Serbatoi standard e custom per sistemi idraulici
-            </p>
+            <h1 className="text-5xl font-bold mb-4">{t.title}</h1>
+            <p className="text-xl text-gray-200">{t.sub}</p>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Serbatoi per Olio Idraulico
-            </h2>
-            <div className="prose prose-lg text-gray-600">
-              <p className="mb-4">
-                I serbatoi Standard <strong>SMA</strong> sono la garanzia di un prodotto 
-                specificatamente studiato per utilizzo in campo idraulico, collaudato e 
-                prodotto in grande serie, generalmente disponibile a magazzino.
-              </p>
-              <p>
-                Qualora la gamma non rispondesse alle vostre esigenze, <strong>SMA</strong> è 
-                in grado di costruire i serbatoi per olio idraulico su vostro disegno, 
-                secondo standard costruttivi e di qualità superiori.
-              </p>
-            </div>
-          </div>
-
-          {/* Small Tanks Table */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">
-              Lamiera Lucida Verniciata e Alluminio - da 20 a 130 litri
-            </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-gray-100">
-                    <th className="text-left p-4 font-bold text-gray-900 border-b-2 border-gray-200">Litri</th>
-                    <th className="text-left p-4 font-bold text-gray-900 border-b-2 border-gray-200">HxPxL mm</th>
-                    <th className="text-left p-4 font-bold text-gray-900 border-b-2 border-gray-200">Cod. Ferro</th>
-                    <th className="text-left p-4 font-bold text-gray-900 border-b-2 border-gray-200">Cod. Allum.</th>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">{t.heading}</h2>
+          <div className="overflow-x-auto border border-gray-200 rounded-xl">
+            <table className="w-full">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="text-left p-3">LITRI</th>
+                  <th className="text-left p-3">HxPxL mm</th>
+                  <th className="text-left p-3">cod. FERRO</th>
+                  <th className="text-left p-3">cod. ALLUM.</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((r, i) => (
+                  <tr key={i} className="border-t border-gray-100">
+                    <td className="p-3">{r.liters}</td>
+                    <td className="p-3">{r.dim}</td>
+                    <td className="p-3">
+                      {r.ironPdf ? <a className="text-[#b91c1c] underline" href={r.ironPdf} target="_blank" rel="noopener noreferrer">{r.iron}</a> : r.iron}
+                    </td>
+                    <td className="p-3">
+                      {r.alumPdf ? <a className="text-[#b91c1c] underline" href={r.alumPdf} target="_blank" rel="noopener noreferrer">{r.alum}</a> : r.alum}
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {smallTanks.map((tank, index) => (
-                    <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="p-4 text-gray-700">{tank.liters}</td>
-                      <td className="p-4 text-gray-600">{tank.dimensions}</td>
-                      <td className="p-4">
-                        <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-mono rounded">
-                          {tank.codeIron}
-                        </span>
-                      </td>
-                      <td className="p-4">
-                        {tank.codeAlum !== '-' ? (
-                          <span className="px-3 py-1 bg-amber-100 text-amber-700 text-sm font-mono rounded">
-                            {tank.codeAlum}
-                          </span>
-                        ) : (
-                          <span className="text-gray-400">-</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
 
-          {/* Large Tanks Table */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">
-              Lamiera Lucida Verniciata e Alluminio - da 120 a 250 litri
-            </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-gray-100">
-                    <th className="text-left p-4 font-bold text-gray-900 border-b-2 border-gray-200">Litri</th>
-                    <th className="text-left p-4 font-bold text-gray-900 border-b-2 border-gray-200">HxPxL mm</th>
-                    <th className="text-left p-4 font-bold text-gray-900 border-b-2 border-gray-200">Cod. Ferro</th>
-                    <th className="text-left p-4 font-bold text-gray-900 border-b-2 border-gray-200">Cod. Allum.</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {largeTanks.map((tank, index) => (
-                    <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="p-4 text-gray-700">{tank.liters}</td>
-                      <td className="p-4 text-gray-600">{tank.dimensions}</td>
-                      <td className="p-4">
-                        <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-mono rounded">
-                          {tank.codeIron}
-                        </span>
-                      </td>
-                      <td className="p-4">
-                        <span className="px-3 py-1 bg-amber-100 text-amber-700 text-sm font-mono rounded">
-                          {tank.codeAlum}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-sm text-gray-500 mt-4">
-              * Serbatoio monostaffa senza flangia per filtro ritorno
-            </p>
+          <h3 className="text-xl font-bold text-gray-900 mt-10 mb-4">{t.docs}</h3>
+          <div className="grid md:grid-cols-3 gap-3 mb-10">
+            {docs.map((d) => (
+              <a key={d.href} href={d.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 p-3 rounded-lg border border-gray-200 hover:bg-gray-50">
+                <FileText className="w-4 h-4 text-[#b91c1c]" />
+                {d.label}
+              </a>
+            ))}
           </div>
 
-          {/* Note */}
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-xl mb-12">
-            <p className="text-amber-900">
-              <strong>Nota:</strong> Ogni serbatoio ha la flangia per il filtro ritorno.
-            </p>
-          </div>
-
-          {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contatti.aspx"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#b91c1c] text-white font-medium rounded-lg hover:bg-[#991b1b] transition-all"
-            >
+            <a href="/contatti.aspx" className="inline-flex items-center gap-2 px-6 py-3 bg-[#b91c1c] text-white rounded-lg">
               <ArrowRight className="w-5 h-5" />
-              Richiedi Preventivo
+              {t.quote}
             </a>
-            <a
-              href="/original-site/elenco-prodotti.htm"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-700 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-all"
-            >
+            <a href="/original-site/elenco-prodotti.htm" className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg">
               <FileText className="w-5 h-5" />
-              Catalogo Completo
+              {t.catalog}
             </a>
           </div>
         </div>

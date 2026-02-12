@@ -18,6 +18,7 @@ import News from './pages/News';
 import Contatti from './pages/Contatti';
 import Configuratore from './pages/Configuratore';
 import AreaRiservata from './pages/AreaRiservata';
+import { I18nContext, type Language } from './i18n';
 
 export type Page =
   | 'home'
@@ -95,6 +96,11 @@ const resolvePageFromPath = (path: string): Page => {
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>(() => resolvePageFromPath(window.location.pathname));
+  const [language, setLanguage] = useState<Language>(() => {
+    const stored = window.localStorage.getItem('sma-language');
+    if (stored === 'it' || stored === 'en' || stored === 'de') return stored;
+    return 'it';
+  });
 
   const navigateToPage = (page: Page) => {
     const nextPath = pageToPath[page] ?? '/';
@@ -116,6 +122,10 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
+
+  useEffect(() => {
+    window.localStorage.setItem('sma-language', language);
+  }, [language]);
 
   const renderPage = () => {
     switch (currentPage) {
@@ -159,11 +169,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar setPage={navigateToPage} currentPage={currentPage} />
-      <div className="flex-grow">{renderPage()}</div>
-      <Footer setPage={navigateToPage} />
-    </div>
+    <I18nContext.Provider value={{ language, setLanguage }}>
+      <div className="min-h-screen flex flex-col">
+        <Navbar setPage={navigateToPage} currentPage={currentPage} />
+        <div className="flex-grow">{renderPage()}</div>
+        <Footer setPage={navigateToPage} />
+      </div>
+    </I18nContext.Provider>
   );
 }
 

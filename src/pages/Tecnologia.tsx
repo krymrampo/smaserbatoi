@@ -1,144 +1,53 @@
-import { Cog, Ruler, Shield, GraduationCap } from 'lucide-react';
+import { Download } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 const Tecnologia = () => {
+  const { language } = useI18n();
+  const t = {
+    it: { title: 'Tecnologia', sub: 'Innovazione e know-how per serbatoi di alta qualita', eu: 'Progetti cofinanziati dal Fondo Europeo di Sviluppo Regionale' },
+    en: { title: 'Technology', sub: 'Innovation and know-how for high-quality tanks', eu: 'Projects co-financed by the European Regional Development Fund' },
+    de: { title: 'Technologie', sub: 'Innovation und Know-how fuer hochwertige Behaelter', eu: 'Vom Europaeischen Fonds kofinanzierte Projekte' },
+  }[language];
+
+  const projects = [
+    { title: 'Fondo Europeo', image: '/original-site/images/fondo-europeo.jpg', pdf: '/original-site/fondo-europeo.pdf' },
+    { title: 'Risparmio Energetico', image: '/original-site/images/risparmio-energetico.jpg', pdf: '/original-site/risparmio-energetico.pdf' },
+    { title: 'Isola Saldatura', image: '/original-site/images/isola_saldatura.jpg', pdf: '/original-site/isola_saldatura.pdf' },
+  ];
+
   return (
     <main className="pt-[104px]">
-      {/* Hero */}
-      <section className="relative h-[400px] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/images/hero-tank-2.jpg)' }}
-        >
+      <section className="relative h-[360px] overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/original-site/download/immagini/fn000141.jpg)' }}>
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative h-full container mx-auto px-4 flex items-center">
           <div className="max-w-2xl text-white">
-            <h1 className="text-5xl font-bold mb-4">Tecnologia</h1>
-            <p className="text-xl text-gray-200">
-              Innovazione e know-how per serbatoi di alta qualità
-            </p>
+            <h1 className="text-5xl font-bold mb-4">{t.title}</h1>
+            <p className="text-xl text-gray-200">{t.sub}</p>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg text-gray-600 mb-12">
-              <p className="mb-4">
-                <strong>SMA</strong> progetta e costruisce serbatoi metallici da oltre 30 anni. 
-                La notevole esperienza tecnologica, il know-how di processo e la conoscenza del 
-                prodotto garantiscono un serbatoio sicuro, secondo i più elevati standard.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <div className="bg-gray-50 p-8 rounded-2xl">
-                <div className="w-14 h-14 bg-[#b91c1c] rounded-lg flex items-center justify-center mb-6">
-                  <Ruler className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Progettazione CAD
-                </h3>
-                <p className="text-gray-600">
-                  La progettazione dei serbatoi avviene attingendo dal vasto know-how tecnico 
-                  di cui l'azienda dispone, supportato dall'utilizzo di <strong>stazioni CAD 2D e 3D</strong>.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-8 rounded-2xl">
-                <div className="w-14 h-14 bg-[#b91c1c] rounded-lg flex items-center justify-center mb-6">
-                  <Cog className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Produzione Automatizzata
-                </h3>
-                <p className="text-gray-600">
-                  I processi di produzione <strong>altamente automatizzati</strong> garantiscono 
-                  un'elevata produttività e costi ridotti.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-8 rounded-2xl">
-                <div className="w-14 h-14 bg-[#b91c1c] rounded-lg flex items-center justify-center mb-6">
-                  <Shield className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Saldatura Certificata
-                </h3>
-                <p className="text-gray-600">
-                  I processi di saldatura sono <strong>certificati e supervisionati</strong> da operatori 
-                  qualificati. Controlli radiografici, micro e macrografie, test ad ultrasuoni 
-                  confermano il mantenimento ed il progressivo miglioramento degli stessi.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-8 rounded-2xl">
-                <div className="w-14 h-14 bg-[#b91c1c] rounded-lg flex items-center justify-center mb-6">
-                  <GraduationCap className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Formazione Continua
-                </h3>
-                <p className="text-gray-600">
-                  Lo staff tecnico e commerciale riceve un <strong>addestramento continuo</strong> 
-                  assicurando una risposta professionale alle richieste del cliente.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gray-900 text-white p-8 rounded-2xl">
-              <p className="text-lg leading-relaxed">
-                L'esperienza pluriennale di <strong>SMA Serbatoi S.p.A.</strong> nella progettazione e 
-                costruzione, unite alla costante ricerca di nuove soluzioni all'avanguardia, 
-                garantiscono un prodotto di alta qualità.
-              </p>
-            </div>
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="bg-gray-50 rounded-xl p-6 mb-10">
+            <p className="text-gray-700">SMA utilizza progettazione CAD 2D/3D, produzione automatizzata e processi di saldatura certificati con controlli continui.</p>
           </div>
-        </div>
-      </section>
 
-      {/* Progetti Europei */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Progetti Cofinanziati dal Fondo Europeo di Sviluppo Regionale
-            </h2>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-md">
-              <p className="text-gray-600 mb-6">
-                Il progetto della SMA Serbatoi SpA si è incentrato sull'acquisto di una nuova 
-                soluzione impiantistica per la saldatura per la produzione di serbatoi per 
-                aria-acqua in alluminio di grandi dimensioni.
-              </p>
-
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                L'innovativo impianto è così costituito:
-              </h3>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-[#b91c1c] rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-gray-600">
-                    Banco di bloccaggio a <strong>controllo numerico</strong>
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-[#b91c1c] rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-gray-600">
-                    Tornio a due torce ad un asse sottoposto a <strong>controllo numerico</strong> per 
-                    la saldatura circonferenziale di serbatoi
-                  </span>
-                </li>
-              </ul>
-
-              <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
-                <p className="text-amber-800 font-medium">
-                  Interventi per il risparmio energetico
-                </p>
-              </div>
-            </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.eu}</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {projects.map((p) => (
+              <article key={p.title} className="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                <img src={p.image} alt={p.title} className="w-full h-44 object-cover" />
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-3">{p.title}</h3>
+                  <a href={p.pdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#b91c1c] hover:underline">
+                    <Download className="w-4 h-4" />Download PDF
+                  </a>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
