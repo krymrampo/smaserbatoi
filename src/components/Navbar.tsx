@@ -32,7 +32,6 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
       profile: 'Profilo',
       products: 'Prodotti',
       home: 'Home',
-      references: 'Referenze',
       distributors: 'Distributori',
       news: 'News',
       contacts: 'Contatti',
@@ -54,7 +53,6 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
       profile: 'Profile',
       products: 'Products',
       home: 'Home',
-      references: 'References',
       distributors: 'Distributors',
       news: 'News',
       contacts: 'Contacts',
@@ -76,7 +74,6 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
       profile: 'Profil',
       products: 'Produkte',
       home: 'Startseite',
-      references: 'Referenzen',
       distributors: 'Vertriebspartner',
       news: 'News',
       contacts: 'Kontakte',
@@ -104,7 +101,6 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
 
   const simpleNavItems: NavItem[] = [
     { label: tr.home, page: 'home' },
-    { label: tr.references, page: 'referenze' },
     { label: tr.distributors, page: 'distributori' },
     { label: tr.news, page: 'news' },
     { label: tr.contacts, page: 'contatti' },

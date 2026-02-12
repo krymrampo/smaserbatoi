@@ -12,7 +12,6 @@ import OlioIdraulico from './pages/OlioIdraulico';
 import Misti from './pages/Misti';
 import Acqua from './pages/Acqua';
 import Carpenteria from './pages/Carpenteria';
-import Referenze from './pages/Referenze';
 import Distributori from './pages/Distributori';
 import News from './pages/News';
 import Contatti from './pages/Contatti';
@@ -42,7 +41,6 @@ export type Page =
   | 'aria-popup-scheda'
   | 'aria-popup-accessori'
   | 'aria-popup-grafico'
-  | 'referenze'
   | 'distributori'
   | 'news'
   | 'contatti'
@@ -69,7 +67,6 @@ const pageToPathByLanguage: Record<Language, Record<Page, string>> = {
     'aria-popup-scheda': '/popup/standard-aria-scheda.htm',
     'aria-popup-accessori': '/popup/standard-aria-accessori.htm',
     'aria-popup-grafico': '/popup/standard-aria-grafico.htm',
-    referenze: '/referenze.aspx',
     distributori: '/distributori-italia.aspx',
     news: '/news.aspx',
     contatti: '/contatti.aspx',
@@ -93,7 +90,6 @@ const pageToPathByLanguage: Record<Language, Record<Page, string>> = {
     'aria-popup-scheda': '/english/popup/standard-aria-scheda.htm',
     'aria-popup-accessori': '/english/popup/standard-aria-accessori.htm',
     'aria-popup-grafico': '/english/popup/standard-aria-grafico.htm',
-    referenze: '/english/referenze.aspx',
     distributori: '/distributori-italia.aspx',
     news: '/english/news.aspx',
     contatti: '/english/contatti.aspx',
@@ -117,7 +113,6 @@ const pageToPathByLanguage: Record<Language, Record<Page, string>> = {
     'aria-popup-scheda': '/deutsch/popup/standard-aria-scheda.htm',
     'aria-popup-accessori': '/deutsch/popup/standard-aria-accessori.htm',
     'aria-popup-grafico': '/deutsch/popup/standard-aria-grafico.htm',
-    referenze: '/deutsch/referenze.aspx',
     distributori: '/distributori-italia.aspx',
     news: '/deutsch/news.aspx',
     contatti: '/deutsch/contatti.aspx',
@@ -132,6 +127,9 @@ const extraPathToRoute: Record<string, RouteMatch> = {
   '/news': { page: 'news', language: 'it' },
   '/prodotti': { page: 'aria-compressa', language: 'it' },
   '/whistleblowing': { page: 'whistleblowing', language: 'it' },
+  '/referenze.aspx': { page: 'home', language: 'it' },
+  '/english/referenze.aspx': { page: 'home', language: 'en' },
+  '/deutsch/referenze.aspx': { page: 'home', language: 'de' },
 };
 
 const buildPathToRouteMap = (): Record<string, RouteMatch> => {
@@ -254,8 +252,6 @@ function App() {
         return <AriaPopupAccessori />;
       case 'aria-popup-grafico':
         return <AriaPopupGrafico />;
-      case 'referenze':
-        return <Referenze />;
       case 'distributori':
         return <Distributori />;
       case 'news':

@@ -32,7 +32,6 @@ const Home = ({ setPage }: HomeProps) => {
       more: 'Scopri di piu',
       referencesTitle: 'Aziende che scelgono SMA',
       referencesText: 'Referenze industriali internazionali con collaborazioni continuative.',
-      referencesCta: 'Vedi tutte le referenze',
     },
     en: {
       features: [
@@ -54,7 +53,6 @@ const Home = ({ setPage }: HomeProps) => {
       more: 'Learn more',
       referencesTitle: 'Companies choosing SMA',
       referencesText: 'International industrial references with long-term collaborations.',
-      referencesCta: 'View all references',
     },
     de: {
       features: [
@@ -76,7 +74,6 @@ const Home = ({ setPage }: HomeProps) => {
       more: 'Mehr erfahren',
       referencesTitle: 'Unternehmen, die SMA waehlen',
       referencesText: 'Internationale Industriekunden mit langfristigen Kooperationen.',
-      referencesCta: 'Alle Referenzen anzeigen',
     },
   }[language];
 
@@ -155,15 +152,6 @@ const Home = ({ setPage }: HomeProps) => {
             </div>
           </div>
 
-          <div className="text-center mt-8">
-            <button
-              onClick={() => setPage('referenze')}
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[#b91c1c] text-[#b91c1c] rounded-lg font-semibold hover:bg-red-50 transition-colors"
-            >
-              {tr.referencesCta}
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
         </div>
       </section>
 
