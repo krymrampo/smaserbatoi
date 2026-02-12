@@ -41,6 +41,7 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
       technology: 'Tecnologia',
       quality: 'Qualita e Omologazioni',
       packaging: 'Imballaggi',
+      whistleblowing: 'Whistleblowing',
       air: 'Aria Compressa',
       diesel: 'Gasolio',
       hydraulic: 'Olio Idraulico',
@@ -62,6 +63,7 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
       technology: 'Technology',
       quality: 'Quality and Approvals',
       packaging: 'Packaging',
+      whistleblowing: 'Whistleblowing',
       air: 'Compressed Air',
       diesel: 'Diesel',
       hydraulic: 'Hydraulic Oil',
@@ -83,6 +85,7 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
       technology: 'Technologie',
       quality: 'Qualitaet und Zulassungen',
       packaging: 'Verpackung',
+      whistleblowing: 'Whistleblowing',
       air: 'Druckluft',
       diesel: 'Diesel',
       hydraulic: 'Hydraulikoel',
@@ -179,6 +182,14 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
                       {child.label}
                     </button>
                   ))}
+                  <a
+                    href="https://whistleblowing.smaserbatoi.it"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-left px-4 py-2.5 text-sm transition-all text-gray-600 hover:text-[#b91c1c] hover:bg-gray-50"
+                  >
+                    {tr.whistleblowing}
+                  </a>
                 </div>
               </div>
             </div>
@@ -246,6 +257,14 @@ const Navbar = ({ setPage, currentPage }: NavbarProps) => {
                     {child.label}
                   </button>
                 ))}
+                <a
+                  href="https://whistleblowing.smaserbatoi.it"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-left py-2 text-sm text-gray-600 hover:text-[#b91c1c]"
+                >
+                  {tr.whistleblowing}
+                </a>
               </div>
             </div>
 
